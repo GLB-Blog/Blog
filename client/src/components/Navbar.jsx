@@ -1,7 +1,7 @@
-import React from 'react'
-import Logo from "../img/logo.png"
-import sdglogo from "../img/sdglogo.png"
-import { Link } from 'react-router-dom'
+import React from 'react';
+import Logo from "../img/logo.png";
+import sdglogo from "../img/sdglogo.png";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -37,7 +37,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Navbar

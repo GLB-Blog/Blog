@@ -57,7 +57,7 @@ const Register = () => {
           onChange={handleChange}
         />
         <button onClick={handleSubmit}>Register</button>
-        {err && <p>{err}</p>}
+        {err && <p className="sometext">{err}</p>}
         <span className="sometext">
           Do you have an account? <Link to="/login" className="login-link">Login</Link>
         </span>

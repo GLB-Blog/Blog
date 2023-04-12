@@ -51,7 +51,7 @@ const Login = () => {
           onChange={handleChange}
         />
         <button onClick={handleSubmit}>Login</button>
-        {err && <p>{err}</p>}
+        {err && <p className="sometext">{err}</p>}
         <span className="sometext">
           Don't you have an account? <Link to="/register" className="register-link">Register</Link>
         </span>

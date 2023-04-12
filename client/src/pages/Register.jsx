@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Logo from "../img/logo.png";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -29,6 +30,9 @@ const Register = () => {
 
   return (
     <div className="auth">
+      <div className="logo">
+          <img src={Logo} alt="" />
+      </div>
       <h1>Register</h1>
       <form>
         <input
@@ -54,8 +58,8 @@ const Register = () => {
         />
         <button onClick={handleSubmit}>Register</button>
         {err && <p>{err}</p>}
-        <span>
-          Do you have an account? <Link to="/login">Login</Link>
+        <span className="sometext">
+          Do you have an account? <Link to="/login" className="login-link">Login</Link>
         </span>
       </form>
     </div>

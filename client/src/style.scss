@@ -66,43 +66,7 @@
             }
         }
       }
-      .navbar{
-        .container{
-            padding: 10px 0px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            .logo{
-                img{
-                    width: 75px;
-                }
-            }
-            .sdglogo{
-                img{
-                  width: 75px;
-                }
-            }
-            .links{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 10px;
-                h6{
-                    font-size: 14px;
-                    font-weight: 300px;
-                }
-                span{
-                    cursor: pointer;
-                }
 
-                .sdg{
-                  img{
-                    width:40px;
-                  }
-                }
-            }
             .write{
               background-color: rgb(157, 2, 8);
               width: 50px;
@@ -305,6 +269,6 @@
           }
         }
       }
-    }
-  }
+    
+  
   

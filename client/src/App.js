@@ -9,9 +9,11 @@ import Login from "./pages/Login";
 import Write from "./pages/Write";
 import Home from "./pages/Home";
 import Single from "./pages/Single";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
 import "./style.scss"
+import SDG from "./pages/SdgGoals";
+import Teachers from "./pages/Teachers";
 
 const Layout = () => {
   return (
@@ -50,6 +52,14 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+  {
+    path : "/SdgGoals",
+    element: <SDG /> 
+  },
+  {
+    path: "/teachers",
+    element : <Teachers />
+  }
 ]);
 
 function App() {

@@ -11,9 +11,7 @@ const Footer = () => {
             <img src={Logo} alt=""/>
           </Link>
       </div>
-      <div className="sdg17">
-        <img src={SDG} alt="" />
-      </div>
+      
 
       <span>
         <b>Made by </b>

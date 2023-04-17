@@ -15,10 +15,12 @@
 
 .logo img{
     width: 75px;
+    height: 95px;
 }
 
 .sdglogo img {
     width: 75px;  
+    height: 75px;
 }
 
 
@@ -31,6 +33,7 @@
 
 .links img{
     width: 45px;
+    height: 45px;
 }
 
 span{

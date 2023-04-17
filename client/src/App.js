@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
 import "./style.scss"
 import SDG from "./pages/SdgGoals";
-import Teachers from "./pages/Teachers";
+import Teachers from "./pages/Teachers/Teachers";
 
 const Layout = () => {
   return (

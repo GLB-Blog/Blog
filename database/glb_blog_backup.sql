@@ -27,8 +27,11 @@ CREATE TABLE `comments` (
   `datetime` datetime NOT NULL,
   `desc` varchar(500) NOT NULL,
   `userid` int NOT NULL,
+  `postid` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `userid_comments` (`userid`),
+  KEY `postid_comments` (`postid`),
+  CONSTRAINT `postid_comments` FOREIGN KEY (`postid`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `userid_comments` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -112,7 +115,7 @@ CREATE TABLE `teachers` (
   PRIMARY KEY (`id`),
   KEY `teachers_userid` (`userid`),
   CONSTRAINT `teachers_userid` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,6 +124,7 @@ CREATE TABLE `teachers` (
 
 LOCK TABLES `teachers` WRITE;
 /*!40000 ALTER TABLE `teachers` DISABLE KEYS */;
+INSERT INTO `teachers` VALUES (1,3),(2,4),(3,7);
 /*!40000 ALTER TABLE `teachers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +142,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `img` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +151,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3,'Yaga','Yaga','$2a$10$JL48bLAR3yY.pbsYtkc9mOK0rQKngKYtIpney.VSEggHaVUUHX4Pa',NULL),(4,'Ali','Ali','$2a$10$9SyJrVhlbdl.uaTmbzyAOu4z3qCFJFhO9jvsIaDKjoMt5XGA7z782',NULL),(5,'Veli','Veli','$2a$10$.NBbk.NxpGbcgfzcRKV9.O5dvk0eI2rHsMkeDWBWwMi9efqqy/tD6',NULL),(6,'as','as','$2a$10$MIJgM82aU2mpRrNKBigLO.i1EkL7ACMUZqXN8dgHHqAm/G7LrUvOS',NULL),(7,'Yaga987','Yaga987','$2a$10$zh5vjSdTJyxdS31i47c/semY85k/qbtbtTdrT4cZ4cywV.PszQNZu',NULL),(8,'GHa','GHa','$2a$10$kVI8J3Bx9/09afhVO3ddu.FsvExqsbFeEiVxiFGpljKoif4Qp4z3m',NULL),(9,'AAAAA','AAAAA','$2a$10$p1cle.yqnbO.osCAut6.6O8gW0aM.NrzP1Dvkpl3ZVoF0EQLodTji',NULL);
+INSERT INTO `users` VALUES (3,'Yaga','Yaga','$2a$10$JL48bLAR3yY.pbsYtkc9mOK0rQKngKYtIpney.VSEggHaVUUHX4Pa',NULL),(4,'Ali','Ali','$2a$10$9SyJrVhlbdl.uaTmbzyAOu4z3qCFJFhO9jvsIaDKjoMt5XGA7z782',NULL),(5,'Veli','Veli','$2a$10$.NBbk.NxpGbcgfzcRKV9.O5dvk0eI2rHsMkeDWBWwMi9efqqy/tD6',NULL),(6,'as','as','$2a$10$MIJgM82aU2mpRrNKBigLO.i1EkL7ACMUZqXN8dgHHqAm/G7LrUvOS',NULL),(7,'Yaga987','Yaga987','$2a$10$zh5vjSdTJyxdS31i47c/semY85k/qbtbtTdrT4cZ4cywV.PszQNZu',NULL),(8,'GHa','GHa','$2a$10$kVI8J3Bx9/09afhVO3ddu.FsvExqsbFeEiVxiFGpljKoif4Qp4z3m',NULL),(9,'AAAAA','AAAAA','$2a$10$p1cle.yqnbO.osCAut6.6O8gW0aM.NrzP1Dvkpl3ZVoF0EQLodTji',NULL),(10,'f121','f122','$2a$10$S2rJvvdBx95SmRnR0UDnT.ybCT0kGty6RYwjopTa3CKpp9gCyoMDe',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -160,4 +164,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-17  2:39:07
+-- Dump completed on 2023-04-17 13:35:38

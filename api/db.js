@@ -1,9 +1,13 @@
-import mysql from "mysql"
+import mysql from "mysql";
+import fs from "fs";
 
-// We have connected our database
+// Read the password from a text file
+const password = fs.readFileSync("C:/Users/DARK/Desktop/password.txt", "utf-8").trim();
+
+// Create the database connection
 export const db = mysql.createConnection({
-    host:"localhost",
+    host: "localhost",
     user: "root",
-    password : "123",
+    password: password,
     database: "glb_blog"
-})
+});

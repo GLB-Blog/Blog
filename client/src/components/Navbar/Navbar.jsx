@@ -1,28 +1,69 @@
-import React from 'react';
+import React from "react";
+// import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/authContext.js";
+import { useContext } from "react";
+// import axios from "axios";
 import Logo from "../../img/logo.png";
 import sdglogo from "../../img/sdglogo.png";
-import { Link } from 'react-router-dom';
-import sdg1 from "../../img/sdg1.png"
-import sdg2 from "../../img/sdg2.png"
-import sdg3 from "../../img/sdg3.png"
-import sdg4 from "../../img/sdg4.png"
-import sdg5 from "../../img/sdg5.png"
-import sdg6 from "../../img/sdg6.png"
-import sdg7 from "../../img/sdg7.png"
-import sdg8 from "../../img/sdg8.png"
-import sdg9 from "../../img/sdg9.png"
-import sdg10 from "../../img/sdg10.png"
-import sdg11 from "../../img/sdg11.png"
-import sdg13 from "../../img/sdg13.png"
-import sdg14 from "../../img/sdg14.png"
-import sdg15 from "../../img/sdg15.png"
-import sdg16 from "../../img/sdg16.png"
-import sdg17 from "../../img/sdg17.png"
-import sdg12 from "../../img/sdg12.png"
-
+import sdg1 from "../../img/sdg1.png";
+import sdg2 from "../../img/sdg2.png";
+import sdg3 from "../../img/sdg3.png";
+import sdg4 from "../../img/sdg4.png";
+import sdg5 from "../../img/sdg5.png";
+import sdg6 from "../../img/sdg6.png";
+import sdg7 from "../../img/sdg7.png";
+import sdg8 from "../../img/sdg8.png";
+import sdg9 from "../../img/sdg9.png";
+import sdg10 from "../../img/sdg10.png";
+import sdg11 from "../../img/sdg11.png";
+import sdg13 from "../../img/sdg13.png";
+import sdg14 from "../../img/sdg14.png";
+import sdg15 from "../../img/sdg15.png";
+import sdg16 from "../../img/sdg16.png";
+import sdg17 from "../../img/sdg17.png";
+import sdg12 from "../../img/sdg12.png";
 import "./Navbar.css";
 
 const Navbar = () => {
+
+  const { currentUser, logout } = useContext(AuthContext);
+
+  // const [write, setwrite] = useState({
+
+  // });
+
+  // useEffect(()=>{
+  //   const fetch = async () => {
+  //     try{
+  //       const res = await axios.get("/navbar")
+  //       setwrite(res.data[0])
+  //       console.log(setwrite)
+  //     }catch(err){
+  //       console.log(err)
+  //     }
+  //   }
+  //   fetch()
+  // },[]);
+
+  // const [err, setError] = useState(null);
+
+  // const navigate = useNavigate();
+
+  // const handleChange = (e) => {
+  //   setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await axios.post("/auth/login", inputs);
+  //     navigate("/");
+  //   } catch (err) {
+  //     setError(err.response.data);
+  //   }
+  // };
+
   return (
     <div className='navbar'>
       <div className="container">
@@ -34,7 +75,14 @@ const Navbar = () => {
         <div className="sdglogo">
           <img src={sdglogo} alt=""/>
         </div>
-        <span className='usernametext'>Username</span>
+        <span>{currentUser?.username}</span>
+          {currentUser ? (
+            <span onClick={logout}>Logout</span>
+          ) : (
+            <Link className="link" to="/login">
+              Login
+            </Link>
+          )}
       
       <div className = "dropdownMenu">
        <ul>
@@ -46,13 +94,10 @@ const Navbar = () => {
       </li>
   </ul>
        </div>
-      
-   
-        <span className='logouttext'>Logout</span>
         <span className='write'> <Link className='link' to='/write'>Write</Link> </span>
       
        <div className="links">
-         <Link className='link' to='/?sdg=Goal-1'> <div className="sdg"><img src={sdg1} alt=""/></div> </Link> 
+        <Link className='link' to='/?sdg=Goal-1'> <div className="sdg"><img src={sdg1} alt=""/></div> </Link> 
         <Link className='link' to='/?sdg=Goal-2'> <div className="sdg"><img src={sdg2} alt=""/></div> </Link> 
         <Link className='link' to='/?sdg=Goal-3'> <div className="sdg"><img src={sdg3} alt=""/></div> </Link> 
         <Link className='link' to='/?sdg=Goal-4'> <div className="sdg"><img src={sdg4} alt=""/></div> </Link> 

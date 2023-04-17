@@ -17,37 +17,35 @@ import sdg8 from "../../img/sdg8.png";
 import sdg9 from "../../img/sdg9.png";
 import sdg10 from "../../img/sdg10.png";
 import sdg11 from "../../img/sdg11.png";
+import sdg12 from "../../img/sdg12.png";
 import sdg13 from "../../img/sdg13.png";
 import sdg14 from "../../img/sdg14.png";
 import sdg15 from "../../img/sdg15.png";
 import sdg16 from "../../img/sdg16.png";
 import sdg17 from "../../img/sdg17.png";
-import sdg12 from "../../img/sdg12.png";
 import "./Navbar.css";
 
 const Navbar = () => {
 
   const { currentUser, logout } = useContext(AuthContext);
-  // const [isTeacher, setIsTeacher] = useState(false);
 
+  const [isTeacher, setIsTeacher] = useState(false);
+
+  const fetchIsTeacher = async () => {
+    try {
+      const response = await axios.get(`/navbar/${currentUser.userId}`);
+      const { isTeacher } = response.data;
+      setIsTeacher(isTeacher);
+    } catch (error) {
+      console.log(error);
+    }
+  };  
   useEffect(() => {
-    // const checkTeacher = async () => {
-    //   try {
-    //     // Make a request to the server to get the user's teacher status
-    //     const res = await axios.get('/checkTeacher');
-    
-    //     // Check if the user is a teacher
-    //     setIsTeacher(res.data.isTeacher);
-    //   } catch (err) {
-    //     console.error(err);
-    //   }
-    // };
-   
-    // if (currentUser) {
-    //   checkTeacher();
-    // }
+    if (currentUser) {
+      fetchIsTeacher();
+    }
   }, [currentUser]);
-
+  
   return (
     <div className='navbar'>
       <div className="container">
@@ -79,7 +77,7 @@ const Navbar = () => {
   </ul>
        </div>
         
-       {/* {isTeacher ? (
+       {isTeacher ? (
           <span className='write'>
             <Link className='link' to='/write'>
               Write
@@ -87,7 +85,7 @@ const Navbar = () => {
           </span>
         ) : (
           <></>
-        )} */}
+        )}
 
        <div className="links">
         <Link className='link' to='/?sdg=Goal-1'> <div className="sdg"><img src={sdg1} alt=""/></div> </Link> 

@@ -1,16 +1,18 @@
 // import express from "express";
-// import { navbar } from "../controllers/navbar.js";
+import {db} from "../db.js";
 
 // const router = express.Router();
 
-// app.get('/checkTeacher', async (req, res) => {
-//     try {
-//       const userIsTeacher = await db.checkIfUserIsTeacher(req.user.id); // Replace with your own database query
-//       res.send({ isTeacher: userIsTeacher });
-//     } catch (err) {
-//       console.error(err);
-//       res.status(500).send('Internal server error');
-//     }
-//   });
+app.get("/navbar/:userId", async (req, res) => {
+    const { userId } = req.params;
+    const q = 'SELECT EXISTS(SELECT 1 FROM teachers WHERE userid = ?) AS userExists';
 
-// export default router;
+    db.query(q, userId, (err, data) => {
+        if (err) return res.status(500).json(err);
+        const userExists = data[0].userExists;
+        if(userExists) return res.status(200).json(true);
+        else return res.status(200).json(false);
+    });
+  });
+
+export default router;

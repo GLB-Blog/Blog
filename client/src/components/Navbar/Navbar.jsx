@@ -1,9 +1,9 @@
 import React from "react";
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext.js";
 import { useContext } from "react";
-// import axios from "axios";
+import axios from "axios";
 import Logo from "../../img/logo.png";
 import sdglogo from "../../img/sdglogo.png";
 import sdg1 from "../../img/sdg1.png";
@@ -28,41 +28,25 @@ import "./Navbar.css";
 const Navbar = () => {
 
   const { currentUser, logout } = useContext(AuthContext);
+  // const [isTeacher, setIsTeacher] = useState(false);
 
-  // const [write, setwrite] = useState({
-
-  // });
-
-  // useEffect(()=>{
-  //   const fetch = async () => {
-  //     try{
-  //       const res = await axios.get("/navbar")
-  //       setwrite(res.data[0])
-  //       console.log(setwrite)
-  //     }catch(err){
-  //       console.log(err)
-  //     }
-  //   }
-  //   fetch()
-  // },[]);
-
-  // const [err, setError] = useState(null);
-
-  // const navigate = useNavigate();
-
-  // const handleChange = (e) => {
-  //   setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await axios.post("/auth/login", inputs);
-  //     navigate("/");
-  //   } catch (err) {
-  //     setError(err.response.data);
-  //   }
-  // };
+  useEffect(() => {
+    // const checkTeacher = async () => {
+    //   try {
+    //     // Make a request to the server to get the user's teacher status
+    //     const res = await axios.get('/checkTeacher');
+    
+    //     // Check if the user is a teacher
+    //     setIsTeacher(res.data.isTeacher);
+    //   } catch (err) {
+    //     console.error(err);
+    //   }
+    // };
+   
+    // if (currentUser) {
+    //   checkTeacher();
+    // }
+  }, [currentUser]);
 
   return (
     <div className='navbar'>
@@ -94,8 +78,17 @@ const Navbar = () => {
       </li>
   </ul>
        </div>
-        <span className='write'> <Link className='link' to='/write'>Write</Link> </span>
-      
+        
+       {/* {isTeacher ? (
+          <span className='write'>
+            <Link className='link' to='/write'>
+              Write
+            </Link>
+          </span>
+        ) : (
+          <></>
+        )} */}
+
        <div className="links">
         <Link className='link' to='/?sdg=Goal-1'> <div className="sdg"><img src={sdg1} alt=""/></div> </Link> 
         <Link className='link' to='/?sdg=Goal-2'> <div className="sdg"><img src={sdg2} alt=""/></div> </Link> 

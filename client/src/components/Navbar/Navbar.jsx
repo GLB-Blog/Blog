@@ -93,23 +93,23 @@ const Navbar = () => {
         <></>
       )}
       <div className="links">
-        <Link className='link' to='/?sdg=Goal-1'> <div className="sdg"><img src={sdg1} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-2'> <div className="sdg"><img src={sdg2} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-3'> <div className="sdg"><img src={sdg3} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-4'> <div className="sdg"><img src={sdg4} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-5'> <div className="sdg"><img src={sdg5} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-6'> <div className="sdg"><img src={sdg6} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-7'> <div className="sdg"><img src={sdg7} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-8'> <div className="sdg"><img src={sdg8} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-9'> <div className="sdg"><img src={sdg9} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-10'> <div className="sdg"><img src={sdg10} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-11'> <div className="sdg"><img src={sdg11} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-12'> <div className="sdg"><img src={sdg12} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-13'> <div className="sdg"><img src={sdg13} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-14'> <div className="sdg"><img src={sdg14} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-15'> <div className="sdg"><img src={sdg15} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-16'> <div className="sdg"><img src={sdg16} alt=""/></div> </Link> 
-        <Link className='link' to='/?sdg=Goal-17'> <div className="sdg"><img src={sdg17} alt=""/></div> </Link>
+        <Link className='link' to='/?cat=goal-1'> <div className="sdg"><img src={sdg1} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-2'> <div className="sdg"><img src={sdg2} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-3'> <div className="sdg"><img src={sdg3} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-4'> <div className="sdg"><img src={sdg4} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-5'> <div className="sdg"><img src={sdg5} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-6'> <div className="sdg"><img src={sdg6} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-7'> <div className="sdg"><img src={sdg7} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-8'> <div className="sdg"><img src={sdg8} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-9'> <div className="sdg"><img src={sdg9} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-10'> <div className="sdg"><img src={sdg10} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-11'> <div className="sdg"><img src={sdg11} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-12'> <div className="sdg"><img src={sdg12} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-13'> <div className="sdg"><img src={sdg13} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-14'> <div className="sdg"><img src={sdg14} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-15'> <div className="sdg"><img src={sdg15} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-16'> <div className="sdg"><img src={sdg16} alt=""/></div> </Link> 
+        <Link className='link' to='/?cat=goal-17'> <div className="sdg"><img src={sdg17} alt=""/></div> </Link>
        </div>
       </div>
     </div>

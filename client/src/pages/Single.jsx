@@ -1,47 +1,70 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Delete from "../img/delete.png";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import moment from "moment";
+import DOMPurify from "dompurify";
 import './Single.css';
 import Menu from '../components/Menu/Menu';
 
-
 const Single = () => {
+  const [post, setPost] = useState({});
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const postId = location.pathname.split("/")[2];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`/posts/${postId}`);
+        setPost(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [postId]);
+
+  const handleDelete = async ()=>{
+    try {
+      await axios.delete(`/posts/${postId}`);
+      navigate("/")
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
-    <div className='singlePostPage'>
-     
-    <div className='content'>
-     
-      <img src='https://picsum.photos/300/300'></img>
-     <div className='user'>
-        <img src = 'https://picsum.photos/10/10'></img>
-        
-        <div className='info'>
-          <span>John</span>
-          <p>Posted 2 days ago</p>
+    <div className="single">
+      <div className="content">
+        <img src={`../upload/${post?.img}`} alt="" />
+        <div className="user">
+          {post.userImg && <img
+            src={post?.userImg}
+            alt=""
+          />}
+          <div className="info">
+            <span>{post?.username}</span>
+            <p>Posted {moment(post.date).fromNow()}</p>
           </div>
-          
-          <div className='deletePost'>
-           <Link to = {"/write?=edit2"}>  <img src='https://picsum.photos/10/10'></img>  </Link>
-           <Link to = {"/write?=edit2"}>  <img src='https://picsum.photos/10/10'></img> </Link>   
-          </div>
-          
-         
-         
+            <div className="edit">
+              {/* <Link to={`/write?edit=2`} state={post}>
+                <img src={Edit} alt="" />
+              </Link> */}
+              <img onClick={handleDelete} src={Delete} alt="" />
+            </div>
         </div>
-        <h2>LOREM IPSUM DOLAR SIT AMET</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at suscipit odio. Vivamus laoreet euismod mauris, at elementum eros egestas nec. Aliquam molestie augue sit amet elit lobortis, non mollis risus euismod. Morbi consequat sollicitudin elit eget varius. Aenean quis fermentum odio. Cras luctus leo et purus blandit, facilisis varius mauris aliquet. Mauris pharetra, dolor nec molestie accumsan, est tortor fermentum sapien, sit amet vehicula orci mauris eu nunc. 
-          Integer non enim odio. Integer vestibulum ullamcorper tortor, interdum lacinia justo molestie a. Vivamus id tellus in turpis ullamcorper mollis quis ut massa. Ut sagittis sapien turpis, vitae imperdiet libero molestie ut. Aliquam erat volutpat. Integer et vulputate odio.
-        Suspendisse vitae tortor eget magna gravida congue.
-        Nunc scelerisque, nisi vitae pulvinar posuere, nibh quam blandit arcu, et lobortis lorem eros eu magna. Vestibulum non mauris non arcu aliquam tincidunt eu a arcu. Phasellus pellentesque, magna sit amet rutrum suscipit, tellus orci varius orci, in tincidunt ex justo ullamcorper est. Nunc ut egestas diam. Sed cursus laoreet eros quis luctus. Donec justo metus, congue ut justo in, ultrices interdum risus. Aliquam convallis sed sapien sed accumsan. Nam aliquam, arcu sit amet eleifend lobortis, nibh enim interdum mauris, vitae egestas sem metus vitae mi.</p>
+        <h1>{post.title}</h1>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(post.desc),
+          }}
+        ></p>      </div>
+      <Menu cat={post.cat}/>
     </div>
- 
- <Menu />
+  );
+};
 
-
-
-  </div>
-  )
-}
-
-export default Single
+export default Single;

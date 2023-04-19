@@ -1,18 +1,16 @@
-import express from "express"
-import { addPost } from "../controllers/post.js"
+import express from "express";
+import {
+  addPost,
+  deletePost,
+  getPost,
+  getPosts,
+} from "../controllers/post.js" ;
 
+const router = express.Router();
 
-const router = express.Router()
+router.get("/", getPosts);
+router.get("/:id", getPost);
+router.post("/", addPost);
+router.delete("/:id", deletePost);
 
-/*
-router.get("/",(req,res) => {
-    res.send("test asasdadsdads")
-    console.log("sayfaya ulasıldı")
-})  
-
-*/
-
-// Browserda localhost:8080/api/post/test yazarsan sana bir response donecek
-// controllers sayfasında okuma işlemlerini gerçekleştireceğiz. 
-router.get("/test", addPost)
-export default router
+export default router;

@@ -28,21 +28,27 @@ import "./Navbar.css";
 const Navbar = () => {
 
   const { currentUser, logout } = useContext(AuthContext);
+  const [userType, setUserType] = useState('');
 
-  const [isTeacher, setIsTeacher] = useState(false);
-
-  const fetchIsTeacher = async () => {
-    try {
-      const response = await axios.get(`/navbar/${currentUser.userId}`);
-      const { isTeacher } = response.data;
-      setIsTeacher(isTeacher);
-    } catch (error) {
-      console.log(error);
-    }
-  };  
   useEffect(() => {
+    // Function to fetch user type
+    async function getUserType(userId) {
+      try {
+        const response = await axios.get(`/${userId}`);
+        if (response.status !== 200) {
+          throw new Error('Failed to fetch user type');
+        }
+        return response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
     if (currentUser) {
-      fetchIsTeacher();
+      getUserType(currentUser.id)
+        .then(data => {
+          setUserType(data);
+        });
     }
   }, [currentUser]);
   
@@ -77,17 +83,16 @@ const Navbar = () => {
   </ul>
        </div>
         
-       {isTeacher ? (
-          <span className='write'>
-            <Link className='link' to='/write'>
-              Write
-            </Link>
-          </span>
-        ) : (
-          <></>
-        )}
-
-       <div className="links">
+       {userType === 'Teacher' ? (
+        <span className='write'>
+          <Link className='link' to='/write'>
+            Write
+          </Link>
+        </span>
+      ) : (
+        <></>
+      )}
+      <div className="links">
         <Link className='link' to='/?sdg=Goal-1'> <div className="sdg"><img src={sdg1} alt=""/></div> </Link> 
         <Link className='link' to='/?sdg=Goal-2'> <div className="sdg"><img src={sdg2} alt=""/></div> </Link> 
         <Link className='link' to='/?sdg=Goal-3'> <div className="sdg"><img src={sdg3} alt=""/></div> </Link> 
@@ -106,7 +111,6 @@ const Navbar = () => {
         <Link className='link' to='/?sdg=Goal-16'> <div className="sdg"><img src={sdg16} alt=""/></div> </Link> 
         <Link className='link' to='/?sdg=Goal-17'> <div className="sdg"><img src={sdg17} alt=""/></div> </Link>
        </div>
-
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import "./style.scss"
 import SDG from "./pages/SdgGoals";
 import Teachers from "./pages/Teachers/Teachers";
+// import Teachers from "./pages/new_teacher_page";
 
 const Layout = () => {
   return (
@@ -42,28 +43,24 @@ const router = createBrowserRouter([
         path: "/write",
         element: <Write />,
       },
+      {
+        path : "/SdgGoals",
+        element: <SDG /> 
+      },
+      {
+        path: "/teachers",
+        element : <Teachers />
+      }
     ],
   },
   {
     path: "/register",
     element: <Register />,
   },
-  // {
-  //   path: "/navbar",
-  //   element: <Navbar />,
-  // },
   {
     path: "/login",
     element: <Login />,
   },
-  {
-    path : "/SdgGoals",
-    element: <SDG /> 
-  },
-  {
-    path: "/teachers",
-    element : <Teachers />
-  }
 ]);
 
 function App() {

@@ -3,15 +3,16 @@ import jwt from "jsonwebtoken";
 
 export const getPosts = (req, res) => {
   const q = req.query.cat
-    ? "SELECT * FROM posts WHERE cat=?"
+    ? "SELECT * FROM posts WHERE cat LIKE ?"
     : "SELECT * FROM posts";
 
-  db.query(q, [req.query.cat], (err, data) => {
+  db.query(q, [`%${req.query.cat}%`], (err, data) => {
     if (err) return res.status(500).send(err);
 
     return res.status(200).json(data);
   });
 };
+
 
 export const getPost = (req, res) => {
   const q =
@@ -31,24 +32,20 @@ export const addPost = (req, res) => {
   jwt.verify(token, "jwtkey", (err, userInfo) => {
     if (err) return res.status(403).json("Token is not valid!");
 
+    const { title, desc, img, datetime, cats } = req.body;
+
     const q =
-      "INSERT INTO posts(`title`, `desc`, `img`, `cat`, `datetime`,`userid`) VALUES (?)";
+      "INSERT INTO posts(`title`, `desc`, `img`, `cat`, `datetime`,`userid`) VALUES (?, ?, ?, ?, ?, ?)";
 
-    const values = [
-      req.body.title,
-      req.body.desc,
-      req.body.img,
-      req.body.cat,
-      req.body.datetime,
-      userInfo.id,
-    ];
+    const values = [title, desc, img, cats.join(","), datetime, userInfo.id];
 
-    db.query(q, [values], (err, data) => {
+    db.query(q, values, (err, data) => {
       if (err) return res.status(500).json(err);
       return res.json("Post has been created.");
     });
   });
 };
+
 
 export const deletePost = (req, res) => {
   const token = req.cookies.access_token;

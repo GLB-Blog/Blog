@@ -9,160 +9,6 @@ const Write = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
-  const [cat, setCat] = useState("");
-
-  const navigate = useNavigate()
-
-  const upload = async () => {
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await axios.post("/upload", formData);
-      return res.data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleClick = async (e) => {
-    e.preventDefault();
-    const imgUrl = await upload();
-
-    try {
-      await axios.post(`/posts/`, {
-            title,
-            desc: value,
-            cat,
-            img: file ? imgUrl : "",
-            datetime: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-          });
-          navigate("/")
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  return (
-    <div className='add'>
-      <div className="content">
-        <input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
-          <div className='editorContainer'> 
-          <ReactQuill className="editor" theme="snow" value={value} onChange={setValue} />
-          </div>
-        
-      </div>
-      <div className="menu">
-        <div className="item"> 
-        <h1>Publish</h1>
-        <span>
-          <b>Status:</b> Draft
-        </span>
-        <span>
-          <b>Visibility:</b> Public
-        </span>
-        <input style={{display:"none"}} type="file" id="file" name="" onChange={(e) => setFile(e.target.files[0])} />
-        <label className="file" htmlFor="file">
-            Upload Image
-          </label>
-        <div className='buttons'>
-          <button>Save as a draft</button>
-          <button onClick={handleClick}>Publish</button>
-        </div>
-        </div>
-        <div className="item">
-          <h1>Category</h1>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-1"} name="category" value="goal-1" id="goal-1" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-1">SDG-1</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-2"} name="category" value="goal-2" id="goal-2" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-2">SDG-2</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-3"} name="category" value="goal-3" id="goal-3" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-3">SDG-3</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-4"} name="category" value="goal-4" id="goal-4" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-4">SDG-4</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-5"} name="category" value="goal-5" id="goal-5" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-5">SDG-5</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-6"} name="category" value="goal-6" id="goal-6" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-6">SDG-6</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-7"} name="category" value="goal-7" id="goal-7" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-7">SDG-7</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-8"} name="category" value="goal-8" id="goal-8" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-8">SDG-8</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-9"} name="category" value="goal-9" id="goal-9" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-9">SDG-9</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-10"} name="category" value="goal-10" id="goal-10" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-10">SDG-10</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-11"} name="category" value="goal-11" id="goal-11" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-11">SDG-11</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-12"} name="category" value="goal-12" id="goal-12" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-12">SDG-12</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-13"} name="category" value="goal-13" id="goal-13" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-13">SDG-13</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-14"} name="category" value="goal-14" id="goal-14" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-14">SDG-14</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-15"} name="category" value="goal-15" id="goal-15" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-15">SDG-15</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-16"} name="category" value="goal-16" id="goal-16" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-16">SDG-16</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "goal-17"} name="category" value="goal-17" id="goal-17" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="goal-17">SDG-17</label>
-          </div>
-          <div className="cat">
-          <input type="radio" checked={cat === "All"} name="category" value="All" id="All" onChange={(e) => setCat(e.target.value)} />
-          <label htmlFor="All">All</label>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-export default Write
-
-/*
-import React, { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import moment from "moment";
-
-const Write = () => {
-  const [value, setValue] = useState("");
-  const [title, setTitle] = useState("");
-  const [file, setFile] = useState(null);
   const [cats, setCats] = useState([]);
 
   const navigate = useNavigate()
@@ -204,6 +50,11 @@ const Write = () => {
       setCats([...cats, cat]);
     }
   }
+
+  const handleCheckAll = () => {
+    const allGoals = Array.from({ length: 17 }, (_, i) => `goal-${i + 1}`);
+    setCats(allGoals);
+  };
 
   return (
     <div className='add'>
@@ -303,7 +154,7 @@ const Write = () => {
           <label htmlFor="goal-17">SDG-17</label>
           </div>
           <div className="cat">
-          <input type="checkbox" checked={cats.includes("All")} name="category" value="All" id="All" onChange={handleCatChange} />
+          <input type="checkbox" name="category" value="All" id="All" onChange={handleCheckAll} />
           <label htmlFor="All">All</label>
           </div>
         </div>
@@ -313,4 +164,3 @@ const Write = () => {
 }
 
 export default Write
-*/

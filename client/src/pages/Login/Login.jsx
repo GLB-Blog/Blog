@@ -2,9 +2,9 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/authContext.js";
-import Logo from "../img/logo.png";
-
+import { AuthContext } from "../../context/authContext.js";
+import Logo from "../../img/logo.png";
+import "./Login.css"
 const Login = () => {
 
   const [inputs, setInputs] = useState({
@@ -32,11 +32,9 @@ const Login = () => {
   };
 
   return (
+  
     <div className="auth">
-      <div className="logo">
-          <img src={Logo} alt="" />
-      </div>
-      <h1>Login</h1>
+     <h1>Login</h1>
       <form>
         <input
           required
@@ -59,6 +57,7 @@ const Login = () => {
         </span>
       </form>
     </div>
+   
   );
 };
 

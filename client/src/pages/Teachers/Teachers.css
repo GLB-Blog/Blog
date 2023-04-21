@@ -1,18 +1,57 @@
 .mainClass{
     margin: -10px;
 }
-
-
 img{
-    width: 1100px;
-    height: 270px;
+    width: 100vw;
+    height: 30vh;
+    
 } 
 
-.imageContainer {
-    position:relative}
+ .imageContainer {
+    width: 100vw;
+    height: 30vh;
+    background-color: red;
+    position:relative
+}
 
-.imageContent {
+ .imageContent {
     color: white;
-    font-size: 45px;
+    font-size: 3rem;
     position:absolute;
-    left:420px;top:110px; }
+    left:40vw;
+    top:15vh; 
+}
+
+    .CardContainer{
+        margin-right: 10%;
+    }
+   
+   @media only screen and (max-width: 768px) {
+       
+
+        img{
+            width: 100%;
+            height: 30vh;
+            
+        } 
+        .imageContainer {
+            width: 100%;
+            height: 30vh;
+            position:relative
+        }
+
+         .imageContent {
+            color: white;
+            font-size: 3rem;
+            position:absolute;
+            left:50%;
+            top:15vh; 
+        }
+
+        .CardContainer{
+           margin-right: 10em;   
+        }
+    
+    }
+
+     

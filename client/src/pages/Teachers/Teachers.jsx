@@ -8,7 +8,11 @@ const Teachers = () => {
     <img src={agu} alt=""></img>
     <p className="imageContent">GLB Teachers</p>
   </div>
-<Card />
+
+<div className="CardContainer"><Card /></div>
+
+
+
         
     </div>)
 }

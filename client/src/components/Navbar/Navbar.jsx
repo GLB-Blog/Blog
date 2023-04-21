@@ -55,11 +55,12 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       <div className="container">
+       
         <div className="logo">
           <Link to='/'>
             <img src={Logo} alt=""/>
           </Link>
-        </div>
+        </div> 
         <div className="sdglogo">
           <img src={sdglogo} alt=""/>
         </div>

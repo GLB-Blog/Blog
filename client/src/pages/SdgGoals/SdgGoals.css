@@ -1,0 +1,40 @@
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  
+    /* width: 1024px; 
+    Saas dosyasında adam container içerisine 1024 px verdiği için her sayfada belli bir boşluk kalmış . 
+    Herkes kendi sayfasındaki boşluğu kendi karar versin
+   */ 
+  }
+  
+  .list-item {
+    width: 30%;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .list-item img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .item-content {
+    padding: 20px;
+  }
+  
+  .item-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .item-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }

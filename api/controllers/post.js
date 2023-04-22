@@ -3,10 +3,10 @@ import jwt from "jsonwebtoken";
 
 export const getPosts = (req, res) => {
   const q = req.query.cat
-    ? "SELECT * FROM posts WHERE cat LIKE ?"
+    ? "SELECT * FROM posts WHERE cat Regexp ?"
     : "SELECT * FROM posts";
 
-  db.query(q, [`%${req.query.cat}%`], (err, data) => {
+  db.query(q, [`${req.query.cat}`], (err, data) => {
     if (err) return res.status(500).send(err);
 
     return res.status(200).json(data);

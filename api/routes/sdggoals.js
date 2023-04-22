@@ -4,7 +4,7 @@ import {db} from "../db.js";
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    const q = 'SELECT id, name, email, img FROM instructor WHERE id BETWEEN 1 AND 5';
+    const q = 'SELECT * FROM sdg WHERE id BETWEEN 1 AND 17';
     db.query(q, (err, data) => {
       if (err) {
         console.log(err);

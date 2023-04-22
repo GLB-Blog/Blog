@@ -1,128 +1,95 @@
-import React from "react";
-import "./SdgGoals.css"
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './SdgGoals.css';
+import sdg1 from "../../img/sdg1.png";
+import sdg2 from "../../img/sdg2.png";
+import sdg3 from "../../img/sdg3.png";
+import sdg4 from "../../img/sdg4.png";
+import sdg5 from "../../img/sdg5.png";
+import sdg6 from "../../img/sdg6.png";
+import sdg7 from "../../img/sdg7.png";
+import sdg8 from "../../img/sdg8.png";
+import sdg9 from "../../img/sdg9.png";
+import sdg10 from "../../img/sdg10.png";
+import sdg11 from "../../img/sdg11.png";
+import sdg12 from "../../img/sdg12.png";
+import sdg13 from "../../img/sdg13.png";
+import sdg14 from "../../img/sdg14.png";
+import sdg15 from "../../img/sdg15.png";
+import sdg16 from "../../img/sdg16.png";
+import sdg17 from "../../img/sdg17.png";
 
+const SDG = () =>{
+  const [sdg, setsdg] = useState([]);
 
-const items = [
-    {
-      id: 1,
-      img: 'https://picsum.photos/400/300',
-      title: 'No Poverty',
-      description: 'Bu öğenin açıklaması'
-    },
-    {
-      id: 2,
-      img: 'https://picsum.photos/400/300',
-      title: 'Zero Hunger',
-      description: 'Bu öğenin açıklaması'
-    },
-    {
-      id: 3,
-      img: 'https://picsum.photos/400/300',
-      title: 'Good Health and Well-Being',
-      description: 'Bu öğenin açıklaması'
-    },
-    {
-        id: 4,
-        img: 'https://picsum.photos/400/300',
-        title: 'Quality Education',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 5,
-        img: 'https://picsum.photos/400/300',
-        title: 'Gender Equality',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 6,
-        img: 'https://picsum.photos/400/300',
-        title: 'Clean Water and Sanitation',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 7,
-        img: 'https://picsum.photos/400/300',
-        title: 'Affordable and Clean Energy',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 8,
-        img: 'https://picsum.photos/400/300',
-        title: 'Decent Work and Economic Growth',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 9,
-        img: 'https://picsum.photos/400/300',
-        title: 'Industry, Innovation and Infrastructure',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 10,
-        img: 'https://picsum.photos/400/300',
-        title: 'Reduced Inequalities',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 11,
-        img: 'https://picsum.photos/400/300',
-        title: 'Sustainable Cities and Communities',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 12,
-        img: 'https://picsum.photos/400/300',
-        title: 'Responsible Consumption and Production',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 13,
-        img: 'https://picsum.photos/400/300',
-        title: 'Climate Action',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 14,
-        img: 'https://picsum.photos/400/300',
-        title: 'Life Below Water',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 15,
-        img: 'https://picsum.photos/400/300',
-        title: 'Life On Land',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 16,
-        img: 'https://picsum.photos/400/300',
-        title: 'Peace,Justice and Strong Institutions',
-        description: 'Bu öğenin açıklaması'
-      },
-      {
-        id: 17,
-        img: 'https://picsum.photos/400/300',
-        title: 'Partnerships for the Goals',
-        description: 'Bu öğenin açıklaması'
+  useEffect(() => {
+    const fetchAllsdg = async () => {
+      try {
+        const res = await axios.get("http://localhost:8800/sdg");
+        setsdg(res.data);
+      } catch (err) {
+        console.log(err); // Log any errors that occur
       }
-  ];
+    };
+    fetchAllsdg();
+  }, []);  
 
-  const List = () => {
-    return (
-      <div className="list-container">
-        {items.map((item) => (
-          <div className="list-item" key={item.id}>
-            <img src={item.img} alt="" />
-            <div className="item-content">
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              
-            </div>
+  console.log(sdg);
+
+  const getImageBySdgId = (id) => {
+    switch (id) {
+      case 1:
+        return sdg1;
+      case 2:
+        return sdg2;
+      case 3:
+        return sdg3;
+      case 4:
+        return sdg4;
+      case 5:
+        return sdg5;
+      case 6:
+        return sdg6;
+      case 7:
+        return sdg7;
+      case 8:
+        return sdg8;
+      case 9:
+        return sdg9;
+      case 10:
+        return sdg10;
+      case 11:
+        return sdg11;
+      case 12:
+        return sdg12;
+      case 13:
+        return sdg13;
+      case 14:
+        return sdg14;
+      case 15:
+        return sdg15;
+      case 16:
+        return sdg16;
+      case 17:
+        return sdg17;
+      default:
+        return null;
+    }
+  }
+
+  return (
+    <div className="list-container">
+      {sdg.map((item) => (
+        <div className="list-item" key={item.id}>
+          <img src={getImageBySdgId(item.id)} alt="" />
+          <div className="item-content">
+            <h2>{item.title}</h2>
+            <p>{item.description}</p>
           </div>
-        ))}
-      </div>
-    );
-  };
+        </div>
+      ))}
+    </div>
+  );
+};
 
-
-export default List
+export default SDG

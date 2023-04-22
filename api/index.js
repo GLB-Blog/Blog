@@ -5,8 +5,8 @@ import navbar from "./routes/navbar.js";
 import cookieParser from "cookie-parser";
 import multer from "multer";
 import cors from "cors";
-// import teachers from "./routes/teacher.js";
-
+import Teacher from "./routes/teacher.js";
+import sdg from "./routes/sdggoals.js";
 
 const app = express();
 
@@ -33,7 +33,8 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/:userId", navbar);
-// app.use("/instructor", teachers);
+app.use("/teachers", Teacher);
+app.use("/sdg", sdg);
 
 // The first property specify the port number ==> 8080 
 app.listen(8800,() => {

@@ -78,7 +78,7 @@ const Navbar = () => {
          <li><a>About </a>
            <ul class="dropdown">
           <Link to= '/teachers'><li><a>Teachers</a>   </li></Link> 
-         <Link to= '/SdgGoals'><li><a>Sdg Goals</a></li></Link> 
+         <Link to= '/sdg'><li><a>Sdg Goals</a></li></Link> 
       </ul>
       </li>
   </ul>

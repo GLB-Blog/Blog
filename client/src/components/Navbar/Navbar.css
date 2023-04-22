@@ -29,11 +29,12 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
-}
+  }
 
 .links img{
     width: 45px;
     height: 45px;
+  
 }
 
 span{
@@ -110,3 +111,5 @@ ul li {
     }
 
  ul li ul li a { transition: all 0.5s ease; }
+
+ 

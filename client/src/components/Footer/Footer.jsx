@@ -1,7 +1,9 @@
 import React from 'react';
-import Logo from '../img/logo.png';
-import SDG from  '../img/sdg17.png';
+import Logo from '../../img/logo.png';
+
 import { Link } from 'react-router-dom';
+import "./Footer.css"
+
 
 const Footer = () => {
   return (

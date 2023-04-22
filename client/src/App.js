@@ -4,15 +4,15 @@ import {
   Route,
   Outlet,
 } from "react-router-dom";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
 import Write from "./pages/Write";
 import Home from "./pages/Home";
-import Single from "./pages/Single";
+import Single from "./pages/Single/Single";
 import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import "./style.scss"
-import SDG from "./pages/SdgGoals";
+import SDG from "./pages/SdgGoals/SdgGoals";
 import Teachers from "./pages/Teachers/Teachers";
 // import Teachers from "./pages/new_teacher_page";
 
@@ -47,10 +47,7 @@ const router = createBrowserRouter([
         path : "/SdgGoals",
         element: <SDG /> 
       },
-      {
-        path: "/teachers",
-        element : <Teachers />
-      }
+      
     ],
   },
   {
@@ -61,6 +58,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+  {
+    path: "/teachers",
+    element : <Teachers />
+  }
 ]);
 
 function App() {

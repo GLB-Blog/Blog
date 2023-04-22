@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Delete from "../img/delete.png";
+import Delete from "../../img/delete.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
 import DOMPurify from "dompurify";
 import './Single.css';
-import Menu from '../components/Menu/Menu';
+import Menu from '../../components/Menu/Menu';
 
 const Single = () => {
   const [post, setPost] = useState({});

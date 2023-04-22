@@ -1,4 +1,7 @@
 import React from "react";
+import "./SdgGoals.css"
+
+
 const items = [
     {
       id: 1,

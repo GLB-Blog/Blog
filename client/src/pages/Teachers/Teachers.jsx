@@ -1,7 +1,7 @@
 import React from "react";
-import './Teachers.css'
+import './Teachers.css';
 import agu from '../../img/agu.png';
-import Card from "../../components/Card/Card.jsx"
+import Card from "../../components/Card/Card.jsx";
 const Teachers = () => {
     return(<div className="mainClass">
   <div className="imageContainer">
@@ -14,7 +14,7 @@ const Teachers = () => {
 
 
         
-    </div>)
-}
+    </div>);
+};
 
 export default Teachers

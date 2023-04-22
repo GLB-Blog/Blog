@@ -6,6 +6,7 @@ import moment from "moment";
 import DOMPurify from "dompurify";
 import './Single.css';
 import Menu from '../../components/Menu/Menu';
+import Logo from "../../img/logo.png";
 
 const Single = () => {
   const [post, setPost] = useState({});
@@ -39,12 +40,12 @@ const Single = () => {
   return (
     <div className="single">
       <div className="content">
-        <img src={`../upload/${post?.img}`} alt="" />
+      <img src={`../upload/${post?.img}` ?? Logo} alt="" />
         <div className="user">
-          {post.userImg && <img
-            src={post?.userImg}
-            alt=""
-          />}
+        <img
+          src={post?.userImg ?? Logo}
+          alt=""
+        />  
           <div className="info">
             <span>{post?.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>

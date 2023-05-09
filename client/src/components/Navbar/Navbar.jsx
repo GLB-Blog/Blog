@@ -25,6 +25,7 @@ import sdg16 from "../../img/sdg16.png";
 import sdg17 from "../../img/sdg17.png";
 import "./Navbar.css";
 
+
 const Navbar = () => {
 
   const { currentUser, logout } = useContext(AuthContext);

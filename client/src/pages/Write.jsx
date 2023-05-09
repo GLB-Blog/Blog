@@ -67,7 +67,7 @@ const Write = () => {
       </div>
       <div className="menu">
         <div className="item"> 
-        <h1>Publish</h1>
+        <h1 className="publish">Publish</h1>
         <span>
           <b>Status:</b> Draft
         </span>
@@ -84,7 +84,7 @@ const Write = () => {
         </div>
         </div>
         <div className="item">
-          <h1>Category</h1>
+          <h1 className="categorytext">Category</h1>
           <div className="cat">
           <input type="checkbox" checked={cats.includes("goal-1")} name="category" value="goal-1" id="goal-1" onChange={handleCatChange} />
           <label htmlFor="goal-1">SDG-1</label>

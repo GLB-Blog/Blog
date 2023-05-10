@@ -63,7 +63,6 @@ const Write = () => {
           <div className='editorContainer'> 
           <ReactQuill className="editor" theme="snow" value={value} onChange={setValue} />
           </div>
-        
       </div>
       <div className="menu">
         <div className="item"> 

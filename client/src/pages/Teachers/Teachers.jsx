@@ -6,7 +6,7 @@ const Teachers = () => {
     return(<div className="mainClass">
   <div className="imageContainer">
     <img src={agu} alt=""></img>
-    <p className="imageContent">GLB Teachers</p>
+    <p className="imageContent">GLB Coordinators</p>
   </div>
 
 <div className="CardContainer"><Card /></div>

@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/authContext.js";
 import { useContext } from "react";
 import axios from "axios";
 import Logo from "../../img/logo.png";
-import sdglogo from "../../img/sdglogo.png";
+// import sdglogo from "../../img/sdglogo.png";
 import sdg1 from "../../img/sdg1.png";
 import sdg2 from "../../img/sdg2.png";
 import sdg3 from "../../img/sdg3.png";
@@ -62,9 +62,9 @@ const Navbar = () => {
             <img src={Logo} alt=""/>
           </Link>
         </div> 
-        <div className="sdglogo">
+        {/* <div className="sdglogo">
           <img src={sdglogo} alt=""/>
-        </div>
+        </div> */}
         <span>{currentUser?.username}</span>
           {currentUser ? (
             <span onClick={logout}>Logout</span>
@@ -78,8 +78,8 @@ const Navbar = () => {
        <ul>
          <li><a>About </a>
            <ul class="dropdown">
-          <Link to= '/teachers'><li><a>Teachers</a>   </li></Link> 
-         <Link to= '/sdg'><li><a>Sdg Goals</a></li></Link> 
+          <Link to= '/teachers'><li><a>Coordinators</a>   </li></Link> 
+         <Link to= '/sdg'><li><a>SDG Goals</a></li></Link> 
       </ul>
       </li>
   </ul>

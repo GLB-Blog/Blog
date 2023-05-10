@@ -54,12 +54,19 @@
         cursor: pointer;
     }
 
-     h2{
+    h2{
         font-size: 42px;
-        color : #333;
+        color : rgb(3, 7, 30);
     }
 
-     p{
+    p{
     text-align: justify; 
     line-height: 26px;
+    }
+
+    .title{
+        color:rgb(3, 7, 30);
+    }
+    .desc{
+        color: rgb(3, 7, 30);
     }

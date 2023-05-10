@@ -31,7 +31,11 @@ const Register = () => {
   return (
   
    <div className="auth">
-     
+     <div className="logo">
+          <Link to='/'>
+            <img src={Logo} alt=""/>
+          </Link>
+      </div>
       <h1>Register</h1>
       <form>
         <input

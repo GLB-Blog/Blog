@@ -34,6 +34,11 @@ const Login = () => {
   return (
   
     <div className="auth">
+      <div className="logo">
+          <Link to='/'>
+            <img src={Logo} alt=""/>
+          </Link>
+      </div> 
      <h1>Login</h1>
       <form>
         <input

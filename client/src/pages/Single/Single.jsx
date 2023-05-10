@@ -57,8 +57,8 @@ const Single = () => {
               <img onClick={handleDelete} src={Delete} alt="" />
             </div>
         </div>
-        <h1>{post.title}</h1>
-        <p
+        <h1 className="title">{post.title}</h1>
+        <p className="desc"
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(post.desc),
           }}

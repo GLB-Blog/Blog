@@ -35,7 +35,15 @@ const Single = () => {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
+
+  const cleanHTML = (html) => {
+    const allowedTags = ['ul', 'li'];
+    const cleanHTML = DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: allowedTags,
+    });
+    return cleanHTML;
+  };
 
   return (
     <div className="single">
@@ -58,11 +66,13 @@ const Single = () => {
             </div>
         </div>
         <h1 className="title">{post.title}</h1>
-        <p className="desc"
+        <p
+          className="desc"
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(post.desc),
+            __html: cleanHTML(post.desc),
           }}
-        ></p>      </div>
+        ></p>    
+    </div><br/><br/>
       <Menu cat={post.cat}/>
     </div>
   );

@@ -116,6 +116,7 @@ ul li {
  ul li ul li a { transition: all 0.5s ease; }
 
  .write {
+  margin-left: 25px;
   background-color: rgb(157, 2, 8);
   width: 50px;
   height: 50px;

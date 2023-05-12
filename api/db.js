@@ -11,3 +11,10 @@ export const db = mysql.createConnection({
     password: password,
     database: "glb_blog"
 });
+
+db.connect(function(err) {
+    if (err) 
+    throw err;
+   else
+    console.log("Connected!");
+});

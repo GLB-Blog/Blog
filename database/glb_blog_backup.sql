@@ -60,7 +60,7 @@ CREATE TABLE `posts` (
   KEY `userid` (`userid`),
   KEY `posts_index` (`cat`),
   CONSTRAINT `userid` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (24,'Lorem İpsum - 1','<p>Lorem İpsum - 1</p>','1683711698990agu.png','2023-05-10 12:41:39',22,'goal-13,goal-11,goal-6'),(25,'Lorem İpsum - 2','<p>Lorem İpsum - 2</p>','1683711736329logo.png','2023-05-10 12:42:16',22,'goal-7,goal-16,goal-1'),(26,'Teacher-1','<p>Teacher-1</p>','1683711974722sdglogo.png','2023-05-10 12:46:14',21,'goal-1,goal-2,goal-3,goal-4,goal-5,goal-6,goal-7,goal-8,goal-9,goal-10,goal-11,goal-12,goal-13,goal-14,goal-15,goal-16,goal-17'),(27,'Teacher-2','<h2><strong><em><u>Teacher-2</u></em></strong></h2><h3>Teacher-2</h3><p>Teacher-2</p>','1683712033168sdg2.png','2023-05-10 12:47:13',21,'goal-10,goal-3,goal-6,goal-17'),(28,'Lorem','<h2>İpsum</h2><p>Lorem</p><h3>İpsum</h3><p>Lorem</p>','1683712097834sdg4.png','2023-05-10 12:48:17',23,'goal-1,goal-2,goal-3,goal-4,goal-5,goal-6,goal-7,goal-8,goal-9,goal-10,goal-11,goal-12,goal-13,goal-14,goal-15,goal-16,goal-17');
+INSERT INTO `posts` VALUES (32,'Global Courses','<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(15, 25, 56);\">AGU – as a research university seeking solutions to global challenges and aiming at developing citizens who can contribute to societies and shape the future. For that purpose we developed an innovative Global Challenge Curriculum (GLB) composed of two mandatory courses and several elective courses taught throughout the three Undergraduate academic years. These courses focus on global topics such as the ones tackled by the United Nations Sustainable Development Goals.</span></p>','1683806399363sdg.jpg','2023-05-11 14:59:59',26,'goal-1,goal-2,goal-3,goal-4,goal-5,goal-6,goal-7,goal-8,goal-9,goal-10,goal-11,goal-12,goal-13,goal-14,goal-15,goal-16,goal-17'),(33,'AGU Global Courses Objectives','<ul><li>To help students comprehend and seek solutions to current and future world challenges in an innovative and stimulating class environment.</li><li>To help students develop and improve soft and hard skills that are relevant to today’s job market.</li><li>To establish a culture of dialogue, debate, “Learning by Doing”, teamwork, empathy and participatory learning.</li><li>To enable progress through the blending of all 3 Contemporary University Missions: Education, Research and Societal Impact</li></ul><p><br></p>','1683806472642AGU_Global_1.jpg','2023-05-11 15:01:12',26,'goal-1,goal-2,goal-3,goal-4,goal-5,goal-6,goal-7,goal-8,goal-9,goal-10,goal-11,goal-12,goal-13,goal-14,goal-15,goal-16,goal-17');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +112,7 @@ CREATE TABLE `teachers` (
   PRIMARY KEY (`id`),
   KEY `teachers_userid` (`userid`),
   CONSTRAINT `teachers_userid` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `teachers` (
 
 LOCK TABLES `teachers` WRITE;
 /*!40000 ALTER TABLE `teachers` DISABLE KEYS */;
-INSERT INTO `teachers` VALUES (1,21),(2,22),(3,23);
+INSERT INTO `teachers` VALUES (1,21),(4,26);
 /*!40000 ALTER TABLE `teachers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,7 +140,7 @@ CREATE TABLE `users` (
   `img` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `users_index` (`username`,`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +149,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (21,'Teacher-1','Teacher-1','$2a$10$pWYtnVebxzcs.tB2Q7rnuOU2Cv.m2PE5W0AiTHEXsTwO0Tnvi07.G',NULL),(22,'Yaga','Yaga','$2a$10$oEDLb1xLdL6FiL.ZiIdSKeZnfd3SOsqZVUdNhNu9NI1pTBym5yh0C',NULL),(23,'Yaga987','Yaga987','$2a$10$mNxsh9d7zenbgWYndI5rtes6AS3WoUy7HPEphBSNvw5ZGn7Z5rstK',NULL),(24,'Student-1','Student-1','$2a$10$HGTzv7jX5BH6QtH/0ipijuI/tJc6s5EbEKhuqv1Z492RJfkZx1TKe',NULL);
+INSERT INTO `users` VALUES (21,'Teacher-1','Teacher-1','$2a$10$pWYtnVebxzcs.tB2Q7rnuOU2Cv.m2PE5W0AiTHEXsTwO0Tnvi07.G',NULL),(24,'Student-1','Student-1','$2a$10$HGTzv7jX5BH6QtH/0ipijuI/tJc6s5EbEKhuqv1Z492RJfkZx1TKe',NULL),(26,'GLB','GLB','$2a$10$/.g7Vci8ZBVW5dKTQmxzl.YkUN268f5hzzbN.X7PMWoGHTF.SbhQy',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -162,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-10 20:33:24
+-- Dump completed on 2023-05-12 18:08:25

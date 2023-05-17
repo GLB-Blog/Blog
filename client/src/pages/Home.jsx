@@ -1,13 +1,11 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
 
-  const cat = useLocation().search
+  const cat = useLocation().search;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,15 +19,18 @@ const Home = () => {
     fetchData();
   }, [cat]);
 
-  const getText = (html) =>{
-    const doc = new DOMParser().parseFromString(html, "text/html")
-    return doc.body.textContent
-  }
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent;
+  };
+
+  // Sort posts by ID in descending order
+  const sortedPosts = [...posts].sort((a, b) => b.id - a.id);
 
   return (
     <div className="home">
       <div className="posts">
-        {posts.map((post) => (
+        {sortedPosts.map((post) => (
           <div className="post" key={post.id}>
             <div className="img">
               <img src={`../upload/${post.img}`} alt="" />
@@ -46,9 +47,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-     
     </div>
-   
   );
 };
 

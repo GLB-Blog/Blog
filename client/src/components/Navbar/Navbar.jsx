@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/authContext.js";
 import { useContext } from "react";
 import axios from "axios";
@@ -30,6 +30,8 @@ const Navbar = () => {
 
   const { currentUser, logout } = useContext(AuthContext);
   const [userType, setUserType] = useState('');
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     // Function to fetch user type
@@ -95,6 +97,8 @@ const Navbar = () => {
         <></>
       )}
       <div className="links">
+      {isHomePage && (
+        <>
         <Link className='link' to='/?cat=goal-1'> <div className="sdg"><img src={sdg1} alt=""/></div> </Link> 
         <Link className='link' to='/?cat=goal-2'> <div className="sdg"><img src={sdg2} alt=""/></div> </Link> 
         <Link className='link' to='/?cat=goal-3'> <div className="sdg"><img src={sdg3} alt=""/></div> </Link> 
@@ -112,6 +116,8 @@ const Navbar = () => {
         <Link className='link' to='/?cat=goal-15'> <div className="sdg"><img src={sdg15} alt=""/></div> </Link> 
         <Link className='link' to='/?cat=goal-16'> <div className="sdg"><img src={sdg16} alt=""/></div> </Link> 
         <Link className='link' to='/?cat=goal-17'> <div className="sdg"><img src={sdg17} alt=""/></div> </Link>
+        </>
+      )}
        </div>
       </div>
     </div>

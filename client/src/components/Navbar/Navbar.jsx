@@ -82,6 +82,7 @@ const Navbar = () => {
            <ul class="dropdown">
           <Link to= '/teachers'><li><a>Coordinators</a>   </li></Link> 
          <Link to= '/sdg'><li><a>SDG Goals</a></li></Link> 
+         <Link to= '/news'><li><a>News</a>   </li></Link>
       </ul>
       </li>
   </ul>

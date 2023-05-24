@@ -82,4 +82,74 @@
     li {
     margin-bottom: 0.5rem;
     }
+    
+    @media (max-width: 767px) {
+        .singlePostPage {
+          flex-direction: column;
+          gap: 20px;
+        }
+        
+        .content {
+          margin-top: 20px;
+          flex: 1;
+          align-items: center;
+        }
+        
+        .content img {
+          width: 50%;
+          height: auto;
+        }
+        
+        .menu {
+          width: 100%;
+          flex: none;
+          align-items: center;
+        }
+        
+        .user img {
+          width: 30px;
+          height: 30px;
+        }
+        
+        .user {
+          flex-wrap: wrap;
+          gap: 5px;
+          font-size: 12px;
+        }
+        
+        .deletePost {
+          flex-wrap: wrap;
+          gap: 3px;
+        }
+        
+        .deletePost img {
+          width: 15px;
+          height: 15px;
+        }
+        
+        h2 {
+          font-size: 24px;
+        }
+        
+        p {
+          font-size: 14px;
+          line-height: 20px;
+        }
+        
+        .title {
+          font-size: 20px;
+        }
+        
+        .desc {
+          max-width: 100%;
+        }
+        
+        ul {
+          margin-left: 1rem;
+        }
+        
+        li {
+          margin-bottom: 0.3rem;
+        }
+      }
       

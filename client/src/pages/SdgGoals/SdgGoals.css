@@ -38,3 +38,32 @@
     font-size: 8px;
     margin-bottom: 10px;
   }
+  @media (max-width: 767px) {
+    .list-container {
+      justify-content: center;
+      align-items: stretch;
+    }
+    
+    .list-item {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    
+    .list-item img {
+      border-radius: 0;
+    }
+    
+    .item-content {
+      padding: 5px;
+    }
+    
+    .item-content h2 {
+      font-size: 10px;
+      margin-bottom: 3px;
+    }
+    
+    .item-content p {
+      font-size: 8px;
+      margin-bottom: 5px;
+    }
+  }

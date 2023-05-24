@@ -33,3 +33,20 @@ h2{
   .other{
     color:rgb(3, 7, 30);
   }
+  @media (max-width: 767px) {
+    .post-card {
+      gap: 10px;
+    }
+    
+    h2 {
+      font-size: 16px;
+    }
+    
+    .postImg {
+      height: 40%;
+    }
+    
+    .postButton {
+      width: 100%;
+    }
+  }

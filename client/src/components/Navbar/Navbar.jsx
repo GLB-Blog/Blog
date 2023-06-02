@@ -67,12 +67,12 @@ const Navbar = () => {
         {/* <div className="sdglogo">
           <img src={sdglogo} alt=""/>
         </div> */}
-        <span>{currentUser?.username}</span>
+        <span> <div className='username'>{currentUser?.username}</div></span>
           {currentUser ? (
-            <span onClick={logout}>Logout</span>
+            <span className='sag' onClick={logout}>Logout</span>
           ) : (
-            <Link className="link" to="/login">
-              Login
+            <Link className="link" to="/login"><div className='login'>
+              Login</div>
             </Link>
           )}
       

@@ -44,7 +44,7 @@
 .sdg{
   width:60px;
   margin: 0 1px;
-  height:100px;
+  height:80px;
   box-shadow: 0 0 2px 1 px rgba(0,0,0, .1);
   transition:0.5s;
 }
@@ -79,8 +79,11 @@ span{
   margin-right: 10px;
 }
 .username{
-  margin-left: 500px;
+  margin-left: 400px;
   
+}
+.header{
+  font-weight: bold;
 }
 ul li {
     list-style: none;

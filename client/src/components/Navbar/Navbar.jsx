@@ -64,6 +64,7 @@ const Navbar = () => {
             <img src={Logo} alt=""/>
           </Link>
         </div> 
+        <div className='header'>Global Challenge Curriculum</div>
         {/* <div className="sdglogo">
           <img src={sdglogo} alt=""/>
         </div> */}
